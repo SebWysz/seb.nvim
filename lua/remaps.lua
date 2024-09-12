@@ -6,6 +6,9 @@
 --  THE GOD KEYBIND
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Dialog window with the whole error: [h]ighlight
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open inline [e]rror dialog' })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -31,3 +34,25 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Move lines when they're highlighted
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+-- To delete into void buffer... so if you want to paste something else
+-- but delete what's under the cursor first
+vim.keymap.set('x', '<leader>p', '"_dP')
+-- also delete to void register
+vim.keymap.set('n', '<leader>d', '"_d')
+vim.keymap.set('v', '<leader>d', '"_d')
+
+-- Yank into system clipboard
+-- vim.keymap.set('n', '<leader>y', '\"+y')
+-- vim.keymap.set('v', '<leader>y', '\"+y')
+-- vim.keymap.set('n', '<leader>Y', '\"+y')
+
+-- Q useless
+vim.keymap.set('n', 'Q', '<nop>')
+
+-- change all instances of highlighted word
+vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
