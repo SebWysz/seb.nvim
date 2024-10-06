@@ -47,9 +47,9 @@ vim.keymap.set('n', '<leader>d', '"_d')
 vim.keymap.set('v', '<leader>d', '"_d')
 
 -- Yank into system clipboard
--- vim.keymap.set('n', '<leader>y', '\"+y')
--- vim.keymap.set('v', '<leader>y', '\"+y')
--- vim.keymap.set('n', '<leader>Y', '\"+y')
+vim.keymap.set('n', '<leader>y', '"+y')
+vim.keymap.set('v', '<leader>y', '"+y')
+vim.keymap.set('n', '<leader>Y', '"+y')
 
 -- Q useless
 vim.keymap.set('n', 'Q', '<nop>')
