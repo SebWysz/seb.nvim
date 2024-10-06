@@ -55,4 +55,4 @@ vim.keymap.set('v', '<leader>d', '"_d')
 vim.keymap.set('n', 'Q', '<nop>')
 
 -- change all instances of highlighted word
-vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
+vim.keymap.set('n', '<leader>r', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>', { desc = 'Rename all instances of hovered word in current file' })
