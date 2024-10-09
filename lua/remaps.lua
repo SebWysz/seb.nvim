@@ -9,6 +9,9 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Dialog window with the whole error: [h]ighlight
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open inline [e]rror dialog' })
 
+-- Hover menu
+vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover, { desc = 'Open menu on hover' })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -36,23 +39,24 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Move lines when they're highlighted
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move highlighted lines up' })
 
 -- To delete into void buffer... so if you want to paste something else
 -- but delete what's under the cursor first
-vim.keymap.set('x', '<leader>p', '"_dP')
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Delete under curor to void buf then paste' })
 -- also delete to void register
-vim.keymap.set('n', '<leader>d', '"_d')
-vim.keymap.set('v', '<leader>d', '"_d')
+vim.keymap.set('n', '<leader>d', '"_d', { desc = 'Delete to void register' })
+vim.keymap.set('v', '<leader>d', '"_d', { desc = 'Delete to void register' })
 
 -- Yank into system clipboard
-vim.keymap.set('n', '<leader>y', '"+y')
-vim.keymap.set('v', '<leader>y', '"+y')
-vim.keymap.set('n', '<leader>Y', '"+y')
+vim.keymap.set('n', '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
+vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
+vim.keymap.set('n', '<leader>Y', '"+y', { desc = 'Yank to system clipboard' })
 
 -- Q useless
 vim.keymap.set('n', 'Q', '<nop>')
 
 -- change all instances of highlighted word
-vim.keymap.set('n', '<leader>r', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>', { desc = 'Rename all instances of hovered word in current file' })
+vim.keymap.set('n', '<leader>r', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>',
+  { desc = 'Rename all instances of hovered word in current file' })

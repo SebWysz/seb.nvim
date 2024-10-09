@@ -4,4 +4,5 @@
 -- See the kickstart.nvim README for more information
 return {
   require 'custom.plugins.harpoon',
+  require 'custom.plugins.nvim-lspconfig',
 }
