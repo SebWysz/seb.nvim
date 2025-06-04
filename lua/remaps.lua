@@ -54,9 +54,10 @@ vim.keymap.set('n', '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
 vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
 vim.keymap.set('n', '<leader>Y', '"+y', { desc = 'Yank to system clipboard' })
 
+vim.keymap.set('n', '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
+
 -- Q useless
 vim.keymap.set('n', 'Q', '<nop>')
 
 -- change all instances of highlighted word
-vim.keymap.set('n', '<leader>r', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>',
-  { desc = 'Rename all instances of hovered word in current file' })
+vim.keymap.set('n', '<leader>r', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>', { desc = 'Rename all instances of hovered word in current file' })

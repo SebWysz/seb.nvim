@@ -9,7 +9,7 @@ return {
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-    { 'j-hui/fidget.nvim',       opts = {} },
+    { 'j-hui/fidget.nvim', opts = {} },
 
     -- Allows extra capabilities provided by nvim-cmp
     'hrsh7th/cmp-nvim-lsp',
@@ -153,7 +153,9 @@ return {
     local servers = {
       clangd = {},
       -- gopls = {},
-      -- pyright = {},
+      pyright = {
+        cmd = { vim.fn.expand '~/memsql/psyduck/runner/docker/default/.venv/bin/pyright-langserver', '--stdio' },
+      },
       rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
@@ -190,6 +192,13 @@ return {
 
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
+    --local lspconfig = require 'lspconfig'
+
+    --lspconfig.pyright.setup {
+    -- more options here
+    --cmd = { vim.fn.expand '~/memsql/psyduck/runner/docker/default/.venv/bin/pyright-langserver', '--stdio' },
+    --}
+
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
