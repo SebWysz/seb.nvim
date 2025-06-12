@@ -5,4 +5,5 @@
 return {
   require 'custom.plugins.harpoon',
   require 'custom.plugins.nvim-lspconfig',
+  require 'custom.plugins.git-blame',
 }
